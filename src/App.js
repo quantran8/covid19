@@ -1,24 +1,56 @@
-import logo from './logo.svg';
+import { getCovidData } from 'auth/covid';
+import { getUser } from 'auth/slice';
+import Footer from 'component/Footer';
+import Login from 'component/Login';
+import Registed from 'component/Registed';
+import MenuAppBar from 'custom/Bar';
+import Main from 'features/chart/main';
+import fireBase from 'firebase';
+import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Switch, useLocation } from 'react-router-dom';
+import World from 'features/chart/World';
+import BackToTop from 'features/chart/Scoll';
 import './App.css';
-
 function App() {
+  const location = useLocation();
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    const unregister = fireBase.auth().onAuthStateChanged(async (user) => {
+      if (!user) console.error('no user');
+      const res = await dispatch(getUser()).unwrap();
+    });
+
+    return () => unregister();
+  }, []);
+
+  useEffect(async () => {
+    const res = await dispatch(getCovidData()).unwrap();
+    console.log(res);
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AnimatePresence>
+      <div className="App">
+        <MenuAppBar />
+        <Switch location={location} key={location.pathname}>
+          <Route path="/" exact>
+            <Main />
+          </Route>
+          <Route path="/world">
+            <World />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/registed">
+            <Registed />
+          </Route>
+        </Switch>
+        <Footer />
+        <BackToTop />
+      </div>
+    </AnimatePresence>
   );
 }
 
