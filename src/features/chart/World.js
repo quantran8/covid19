@@ -6,12 +6,7 @@ function World(props) {
   const world = useSelector((state) => state.covid.World);
   const convertTime = (date) => {
     const d = new Date(date);
-    const today = new Date();
-    const hours = today.getHours();
-    const minutes = today.getMinutes();
-    const updateH = parseInt(hours) - parseInt(d.getHours());
-    const updateM = parseInt(minutes) - parseInt(d.getMinutes());
-    return updateH == 0 ? `${updateM} phút trước` : `${updateH} giờ trước`;
+    return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
   };
   return (
     <motion.div
@@ -19,15 +14,15 @@ function World(props) {
       initial={{ x: -100, opacity: 0.5 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -100, opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.3 }}
     >
       <h4>Cập nhật : {convertTime(world.Date)}</h4>
-      <Grid container>
+      <Grid container spacing={1}>
         <Grid item xs={12} md={6} lg={6}>
-          <Card square>
+          <Card className="Cases" square>
             <CardContent>
               <Typography variant="h5">Số ca mắc mới</Typography>
-              <Typography variant="h3" className="Cases">
+              <Typography variant="h3" >
                 {world.NewConfirmed}
               </Typography>
             </CardContent>
@@ -35,10 +30,10 @@ function World(props) {
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
-          <Card square>
+          <Card  className="dead" square>
             <CardContent>
               <Typography variant="h5">Số ca tử vong</Typography>
-              <Typography variant="h3" className="dead">
+              <Typography variant="h3">
                 {world.NewDeaths}
               </Typography>
             </CardContent>
@@ -46,10 +41,10 @@ function World(props) {
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
-          <Card square>
+          <Card className="Cases" square>
             <CardContent>
               <Typography variant="h5">Tổng số ca mắc</Typography>
-              <Typography variant="h3" className="Cases">
+              <Typography variant="h3" >
                 {world.TotalConfirmed}
               </Typography>
             </CardContent>
@@ -57,10 +52,10 @@ function World(props) {
         </Grid>
 
         <Grid item xs={12} md={6} lg={6}>
-          <Card square>
+          <Card className="dead" square>
             <CardContent>
               <Typography variant="h5">Tổng số ca tử vong</Typography>
-              <Typography variant="h3" className="dead">
+              <Typography variant="h3" >
                 {world.TotalDeaths}
               </Typography>
             </CardContent>

@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, FastField, ErrorMessage } from 'formik';
-import { Button } from '@material-ui/core';
+import { Button, Backdrop } from '@material-ui/core';
 import * as Yup from 'yup';
 import Customfield from '../custom/customfield';
-import fireBase from '../firebase';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import fireBase, { uiConfig } from '../firebase';
+import { useHistory, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
 function Login(props) {
+  const [open, setOpen] = useState(false);
   const history = useHistory();
+
   const initialValues = {
     name: '',
     password: '',
@@ -27,6 +32,7 @@ function Login(props) {
           password: Yup.string().required('please enter your password'),
         })}
         onSubmit={(value, { resetForm }) => {
+          setOpen(true);
           const { name, password } = value;
           fireBase
             .auth()
@@ -35,9 +41,11 @@ function Login(props) {
               console.log(userinfo.user);
               resetForm();
               history.push('/');
+              setOpen(false);
             })
             .catch((error) => {
               alert(error.message);
+              setOpen(false);
               console.log(error.message);
             });
         }}
@@ -68,6 +76,11 @@ function Login(props) {
           <Link to="/registed">Dont have acount ?</Link>
         </Form>
       </Formik>
+      <h3>or</h3>
+      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fireBase.auth()} />
+      <Backdrop style={{ zIndex: '10' }} open={open}>
+        <CircularProgress style={{ color: 'white' }} />
+      </Backdrop>
     </motion.div>
   );
 }

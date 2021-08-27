@@ -4,9 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TextField, FormControl } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: '30rem',
+    maxWidth: '70% ',
     '& > *': {
       margin: theme.spacing(1),
-      width: '30rem',
+
       marginBottom: theme.spacing(2),
     },
   },

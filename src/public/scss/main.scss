@@ -17,29 +17,43 @@
   padding: 50px 0;
 }
 .info {
-  width: 1000px !important;
   max-width: 100%;
   margin: 0 auto;
   margin-top: 50px;
-
+  padding: 20px 20px 0 20px;
   .title {
-    margin-bottom: 100px;
+    line-height:50px;
+    border-radius:10px;
+    margin-bottom: 50px;
+    background-color: rgb(230, 230, 230);
   }
 }
 @mixin setBg($bgcolor, $text) {
-  background-color: $bgcolor;
-  color: $text;
+  h3 {
+    color: $text;
+  }
+  border-left: 10px solid $bgcolor !important;
   border-radius: 10px;
 }
+
 .Cases {
-  @include setBg(rgb(238, 219, 110), red);
+  @include setBg(orange, orange);
 }
 .recover {
-  @include setBg(rgba(131, 226, 186, 0.562), rgb(46, 179, 46));
+  @include setBg(rgb(16, 173, 16), rgb(46, 179, 46));
 }
 .dead {
-  @include setBg(rgba(235, 158, 144, 0.432), red);
+  @include setBg(red, red);
 }
 .treat {
-  @include setBg(rgba(156, 154, 154, 0.445), black);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include setBg(rgba(112, 106, 106, 0.445), black);
+}
+.vaccincation{
+  background-color:rgba(88, 226, 88, 0.411);
+  color:rgb(41, 146, 41);
+  border-radius: 10px;
 }

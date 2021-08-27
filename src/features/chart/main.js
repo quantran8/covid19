@@ -4,10 +4,10 @@ import TableData from './TableData';
 import Vaccin from './Vaccin';
 import Info from './info';
 import { useSelector } from 'react-redux';
-import { Backdrop } from '@material-ui/core';
+import { Backdrop, Container } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { motion } from 'framer-motion';
-import 'public/css/main.css';
+import 'public/scss/main.scss';
 function Main(props) {
   const loading = useSelector((state) => state.covid.Loading);
   return (
@@ -17,7 +17,7 @@ function Main(props) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="mainContainer">
+      <Container>
         <Info />
         <Chart />
         <TableData />
@@ -25,7 +25,7 @@ function Main(props) {
         <Backdrop style={{ zIndex: '10' }} open={loading}>
           <CircularProgress style={{ color: 'white' }} />
         </Backdrop>
-      </div>
+      </Container>
     </motion.div>
   );
 }

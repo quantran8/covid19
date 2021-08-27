@@ -11,8 +11,9 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import World from 'features/chart/World';
+import News from 'features/chart/News';
 import BackToTop from 'features/chart/Scoll';
-import './App.css';
+import './App.scss';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route path="/world">
             <World />
+          </Route>
+          <Route path="/news">
+            <News />
           </Route>
           <Route path="/login">
             <Login />

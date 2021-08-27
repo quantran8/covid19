@@ -9,4 +9,9 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 const fireBase = firebase.initializeApp(firebaseConfig);
+export const uiConfig = {
+  signInFlow: 'popup',
+  signInSuccessUrl: '/',
+  signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+};
 export default fireBase;

@@ -44,6 +44,7 @@ const style = {
   maxWidth: '100%',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
 };
 
 export default function MenuAppBar(props) {
@@ -70,15 +71,14 @@ export default function MenuAppBar(props) {
           variant="contained"
           color="primary"
         >
-          Logout
+          Sign Out
         </Button>
       ) : (
-        <Button className={classes.btn} variant="contained" color="primary">
-          <Link onClick={handleClose} to="/login" className="link">
-            {' '}
-            Sign in
-          </Link>
-        </Button>
+        <Link onClick={handleClose} to="/login" className="link">
+          <Button className={classes.btn} variant="contained" color="primary">
+            Sign In
+          </Button>
+        </Link>
       )}
       <Button
         className={classes.btn}
@@ -108,12 +108,17 @@ export default function MenuAppBar(props) {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <NavLink to="/" className="NavLink" activeClassName="active" exact>
-              Home
+              Trang chủ
             </NavLink>
           </Typography>
           <Typography variant="h6" className={classes.title}>
             <NavLink to="/world" className="NavLink" activeClassName="active">
               Thế Giới
+            </NavLink>
+          </Typography>
+          <Typography variant="h6" className={classes.title}>
+            <NavLink to="/news" className="NavLink" activeClassName="active">
+              Tin tức
             </NavLink>
           </Typography>
           {auth.id && (

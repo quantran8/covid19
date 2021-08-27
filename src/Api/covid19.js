@@ -36,3 +36,10 @@ export const casesWorld = async () => {
   const { data } = await axios.get(url);
   return data;
 };
+
+export const getNews = async () => {
+  const url =
+    'https://gw.vnexpress.net/ar/get_rule_2?category_id=1004765&limit=50&page=1&data_select=title,share_url,thumbnail_url,lead,publish_time';
+  const { data } = await axios.get(url);
+  return data;
+};

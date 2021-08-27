@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Kaisei TokuminKaisei ', serif;
+}
+
+.footer {
+  margin-top: auto;
+}
+.link {
+  color: white;
+  text-decoration: none;
+}
+.NavLink {
+  font-size:16px;
+  color: black;
+  text-decoration: none;
+  opacity: 0.7;
+}
+.active {
+  text-decoration: underline;
+  font-weight: bold;
+  opacity: 1;
+}
+.world {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.appBar{
+  margin-bottom :70px
+}
+.wrapper{
+  padding:20px 0;
+  .card{
+    padding:0 10px;
+    margin:20px;
+    .vnexpress{
+      display:flex;
+      text-align:left;
+      text-decoration: none;
+      color:black;
+      .img{
+        display: flex;
+        align-items: center;
+        img{
+          width: 300px;
+          max-width: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+

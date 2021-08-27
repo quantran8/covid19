@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   AreaChart,
   ResponsiveContainer,
@@ -9,13 +9,13 @@ import {
   CartesianGrid,
   BarChart,
   Bar,
-
 } from 'recharts';
 import { useSelector } from 'react-redux';
 import { Button, Grid, Paper, Tabs, Tab } from '@material-ui/core';
 import CustomTooltip from 'custom/CustomTooltip';
 import { formatNumber, formatDate } from 'custom/format';
 function Chart(props) {
+  console.log('render' + Math.random());
   const chartHeight = 350;
   const VN = useSelector((state) => state.covid.VietNam);
   const HN = useSelector((state) => state.covid.HaNoi);
@@ -30,6 +30,7 @@ function Chart(props) {
   const dailyProvince = province
     ? province.filter((item) => item.y > 300).sort((a, b) => b.y - a.y)
     : [];
+
   useEffect(() => {
     setDaily(VN);
   }, [VN]);
