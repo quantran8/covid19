@@ -11,7 +11,7 @@ function Info(props) {
   const time = useSelector((state) => state.covid.Time);
   const lastUpdate = data[data.length - 1];
   const date = lastUpdate ? formatDate(lastUpdate.date) : '';
-  const day = moment(lastUpdate.date).calendar();
+  const day =lastUpdate? moment(lastUpdate.date).calendar():'';
   const d=day.split('l');
 
   return (
