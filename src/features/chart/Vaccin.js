@@ -17,40 +17,40 @@ function Vaccin(props) {
   return (
     <div>
       <h2>Tình hình tiêm chủng tại Việt Nam</h2>
-      <Grid container spacing={2}>
-        <Grid  item xs={12} md={4} lg={4}>
+      <Grid container >
+        <Grid  item xs={12} sm={4} md={4} lg={4}>
           <Card square className="recover">
           <CardContent >
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography  variant="h6" component="h2">
               Tổng số người đã tiêm 1 mũi Vaccin
             </Typography>
-            <Typography variant="h3" component="h2" >
+            <Typography variant="h4"  >
               {vaccin.first.total}
             </Typography>
           </CardContent>
           </Card>
         </Grid>
 
-        <Grid  item xs={12} md={4} lg={4} >
+        <Grid  item xs={12} sm={4} md={4} lg={4} >
           <Card square className="recover">
           <CardContent >
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography  variant="h6" component="h2">
               Tổng số người đã tiêm 2 mũi Vaccin
             </Typography>
-            <Typography variant="h3" component="h2" >
+            <Typography variant="h4" >
               {vaccin.second.total}
             </Typography>
           </CardContent>
           </Card>
         </Grid>
 
-        <Grid  item xs={12} md={4} lg={4}>
+        <Grid  item xs={12} sm={4} md={4} lg={4}>
           <Card square className="recover">
           <CardContent >
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography  variant="h6" component="h2">
               Tổng số mũi Vaccin đã tiêm được
             </Typography>
-            <Typography variant="h3" component="h2" >
+            <Typography variant="h4" >
               {vaccin.second.total + vaccin.first.total}
             </Typography>
           </CardContent>
@@ -99,4 +99,4 @@ function Vaccin(props) {
   );
 }
 
-export default Vaccin;
+export default React.memo(Vaccin);

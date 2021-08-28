@@ -15,6 +15,7 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
   const hcmdata = HCM.data.data;
   const { cases } = Province.data;
   const daily = VN.data.vnSeason4CommunityDaily.data;
+  const time = VN.data.lastUpdated;
   const News = data.data['1004765'].data;
 
   return {
@@ -24,7 +25,8 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
     Province: cases,
     Vaccin: { first, second },
     World: Global,
-    News
+    News,
+    Time:time
   };
 });
 
@@ -36,6 +38,7 @@ const initialState = {
   Vaccin: { first: '', second: '' },
   World: {},
   News:[],
+  Time:'',
   Loading: false,
 };
 const covidData = createSlice({
@@ -55,6 +58,7 @@ const covidData = createSlice({
       state.Loading = false;
       state.World = action.payload.World;
       state.News = action.payload.News;
+      state.Time = action.payload.Time;
       return state;
     },
     [getCovidData.rejected]: (state, action) => {

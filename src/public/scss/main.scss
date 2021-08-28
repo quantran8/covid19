@@ -20,7 +20,7 @@
   max-width: 100%;
   margin: 0 auto;
   margin-top: 50px;
-  padding: 20px 20px 0 20px;
+  
   
 }
 .title {
@@ -30,28 +30,38 @@
   background-color: rgb(230, 230, 230);
 }
 @mixin setBg($bgcolor, $text) {
-  h3 {
+  h6{
+    background-color:$bgcolor;
     color: $text;
+    border-radius: 7px;
+    width:180px;
+    max-width: 100%;
+    margin: 0 auto;
+    font-weight:50;
+    margin-bottom:10px;
   }
-  border-left: 10px solid $bgcolor !important;
-  border-radius: 10px;
+  h4{
+    color:$text;
+    font-weight: bold;
+  }
+ 
 }
 
 .Cases {
-  @include setBg(orange, orange);
+  @include setBg(#fcf2e9, #e18425);
 }
 .recover {
-  @include setBg(rgb(16, 173, 16), rgb(46, 179, 46));
+  @include setBg(#cceadf, #00946d);
 }
 .dead {
-  @include setBg(red, red);
+  @include setBg(#ffebe9, #ff392b);
 }
 .treat {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  @include setBg(rgba(112, 106, 106, 0.445), black);
+  @include setBg(rgba(153, 150, 150, 0.445), black);
 }
 .vaccincation{
   background-color:rgba(88, 226, 88, 0.411);

@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Paper, Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Paper, Card, CardContent, Typography, Grid, formatMs } from '@material-ui/core';
 import { formatDate } from 'custom/format';
+import moment from 'moment';
+import 'moment/locale/vi';  
 function Info(props) {
+  moment.locale('vi');
+  console.log(moment.locale('vi'));
   const data = useSelector((state) => state.covid.VietNam);
+  const time = useSelector((state) => state.covid.Time);
   const lastUpdate = data[data.length - 1];
   const date = lastUpdate ? formatDate(lastUpdate.date) : '';
+  const day = moment(lastUpdate.date).calendar();
+  const d=day.split('l');
 
   return (
     <div>
@@ -19,72 +26,64 @@ function Info(props) {
 
           <Paper elevation={4} className="info">
             <h2 className="title">Tình hình dịch COVID-19 tại Việt Nam</h2>
-            <Typography variant="h5">Ngày {date}</Typography>
-            <Grid container spacing={1}>
-              <Grid item xs={12} md={6} lg={6}>
+            <Typography variant="h5">Cập nhật : {d[0] }</Typography>
+            <Grid container>
+              <Grid item xs={6} md={3} lg={3}>
                 <Card square className="Cases">
                   <CardContent >
-                    <Grid container>
-                      <Grid item xs={12} md={6} lg={6}>
-                        <Typography variant="h6">Số ca mắc</Typography>
-                        <Typography variant="h3">{lastUpdate.daily}</Typography>
-                      </Grid>
-                      <Grid item xs={12} md={6} lg={6}>
-                        <Typography variant="h6">Tổng số ca mắc</Typography>
-                        <Typography variant="h3">{lastUpdate.total}</Typography>
-                      </Grid>
-                    </Grid>
+                   
+                        <Typography variant="h6"> Nhiễm</Typography>
+                        <Typography variant="h4">{lastUpdate.daily}</Typography>
+                    
+                        <Typography variant="h6">Tổng nhiễm</Typography>
+                        <Typography variant="h4">{lastUpdate.total}</Typography>
+                     
                   </CardContent>
                 </Card>
               </Grid>
 
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={6} md={3} lg={3}>
                 <Card className="recover" square>
                   <CardContent>
-                    <Grid container>
-                      <Grid item xs={12} md={6} lg={6}>
-                        <Typography variant="h6">Số ca hồi phục</Typography>
-                        <Typography variant="h3">
+                  
+                        <Typography variant="h6"> Khỏi</Typography>
+                        <Typography variant="h4">
                           {lastUpdate.recover}
                         </Typography>
-                      </Grid>
-                      <Grid item xs={12} md={6} lg={6}>
+                    
                         <Typography variant="h6">
-                          Tổng số ca hồi phục
+                          Tổng khỏi
                         </Typography>
-                        <Typography variant="h3">
+                        <Typography variant="h4">
                           {lastUpdate['total-recover']}
                         </Typography>
-                      </Grid>
-                    </Grid>
+                    
+                  
                   </CardContent>
                 </Card>
               </Grid>
 
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={6} md={3} lg={3}>
                 <Card className="dead" square>
                   <CardContent>
-                    <Grid container>
-                      <Grid item xs={12} md={6} lg={6}>
-                        <Typography variant="h6">Số ca tử vong</Typography>
-                        <Typography variant="h3">{lastUpdate.dead}</Typography>
-                      </Grid>
-                      <Grid item xs={12} md={6} lg={6}>
-                        <Typography variant="h6">Tổng số ca tử vong</Typography>
-                        <Typography variant="h3">
+                   
+                        <Typography  variant="h6">tử vong</Typography>
+                        <Typography variant="h4">{lastUpdate.dead}</Typography>
+                      
+                        <Typography variant="h6">Tổng tử vong</Typography>
+                        <Typography variant="h4">
                           {lastUpdate['total-dead']}
                         </Typography>
-                      </Grid>
-                    </Grid>
+                     
                   </CardContent>
                 </Card>
               </Grid>
 
-              <Grid item xs={12} md={6} lg={6}>
+              <Grid item xs={6} md={3} lg={3}>
                 <Card className="treat" square>
                   <CardContent>
-                    <Typography variant="h6">Số ca đang diều trị</Typography>
-                    <Typography variant="h3">
+                    <Typography  variant="h6"> đang diều trị</Typography>
+                    <Typography variant="h4">
                       {lastUpdate.total - lastUpdate['total-recover']}
                     </Typography>
                   </CardContent>

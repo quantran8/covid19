@@ -43,6 +43,13 @@
       text-align:left;
       text-decoration: none;
       color:black;
+      .lead{
+        overflow:hidden;
+        text-overflow: ellipsis;
+        display:-webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
       .img{
         display: flex;
         align-items: center;
@@ -55,11 +62,7 @@
     }
   }
 }
-.container{
-  @media screen and (max-width:740px){
-    padding:0 !important;
-  }
-}
+
 .menu{
   width: 350px;
   display: flex;
