@@ -39,13 +39,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const style = {
-  width: '350px',
-  maxWidth: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-};
 
 export default function MenuAppBar(props) {
   const dispatch = useDispatch();
@@ -63,7 +56,7 @@ export default function MenuAppBar(props) {
     setOpen(false);
   };
   const body = (
-    <div style={style}>
+    <div className='menu' >
       {auth.id ? (
         <Button
           className={classes.btn}

@@ -17,7 +17,7 @@ function Main(props) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <Container>
+      <Container className='container'>
         <Info />
         <Chart />
         <TableData />

@@ -21,12 +21,13 @@
   margin: 0 auto;
   margin-top: 50px;
   padding: 20px 20px 0 20px;
-  .title {
-    line-height:50px;
-    border-radius:10px;
-    margin-bottom: 50px;
-    background-color: rgb(230, 230, 230);
-  }
+  
+}
+.title {
+  line-height:50px;
+  border-radius:10px;
+  margin-bottom: 50px;
+  background-color: rgb(230, 230, 230);
 }
 @mixin setBg($bgcolor, $text) {
   h3 {

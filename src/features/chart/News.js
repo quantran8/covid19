@@ -30,8 +30,8 @@ function News(props) {
       exit={{ x: -100, opacity: 0 }}
       transition={{ duration: 0.3}}
     >
-          <Container >
-            <Typography variant="h4">Tin tức mới cập nhật</Typography>
+          <Container className='container'>
+            <Typography variant="h4" className='title'>Tin tức mới cập nhật</Typography>
             <Paper elevation={4} className='wrapper'>
             {data.map((item, index) => {
               return (
@@ -45,7 +45,7 @@ function News(props) {
 
                               <Grid item xs={12} md={8} lg={8}>
                               <CardContent>
-                                <h2 className="title">{item.title} </h2>
+                                <h2 >{item.title} </h2>
                                 <Typography className="lead">{item.lead}</Typography>
                                 <p>Theo VnExpress</p>
                               </CardContent>
