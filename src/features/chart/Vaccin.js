@@ -25,7 +25,7 @@ function Vaccin(props) {
               Tổng số người đã tiêm 1 mũi Vaccin
             </Typography>
             <Typography variant="h4"  >
-              {vaccin.first.total}
+              {vaccin.first.total&& vaccin.first.total.toLocaleString()}
             </Typography>
           </CardContent>
           </Card>
@@ -38,7 +38,7 @@ function Vaccin(props) {
               Tổng số người đã tiêm 2 mũi Vaccin
             </Typography>
             <Typography variant="h4" >
-              {vaccin.second.total}
+              {vaccin.second.total&&vaccin.second.total.toLocaleString()}
             </Typography>
           </CardContent>
           </Card>
@@ -51,7 +51,7 @@ function Vaccin(props) {
               Tổng số mũi Vaccin đã tiêm được
             </Typography>
             <Typography variant="h4" >
-              {vaccin.second.total + vaccin.first.total}
+              {(vaccin.second.total + vaccin.first.total).toLocaleString()}
             </Typography>
           </CardContent>
           </Card>

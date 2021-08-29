@@ -5,7 +5,7 @@ function Footer(props) {
   return (
     <div className="footer">
       <p>Designed by QuanTran </p>
-      <p>Contact : quantran8@gmail.com</p>
+      <p>Contact : quan5080@gmail.com</p>
     </div>
   );
 }

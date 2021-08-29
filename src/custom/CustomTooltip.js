@@ -6,7 +6,7 @@ function CustomTooltip({ payload, active, label, text }) {
       <div className="custom-tooltip">
         <Paper elevation={5} style={{ padding: ' 1px 10px' }}>
           <p>{label}</p>
-          <p className="label">{`${text} : ${payload && payload[0].value}`}</p>
+          <p className="label">{`${text} : ${payload && payload[0].value.toLocaleString()}`}</p>
         </Paper>
       </div>
     );

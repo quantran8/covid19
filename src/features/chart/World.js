@@ -39,7 +39,7 @@ function World(props) {
             <CardContent>
               <Typography variant="h6">Số ca mắc mới</Typography>
               <Typography variant="h4" >
-                {world.NewConfirmed}
+                {world.NewConfirmed.toLocaleString()}
               </Typography>
             </CardContent>
           </Card>
@@ -50,7 +50,7 @@ function World(props) {
             <CardContent>
               <Typography variant="h6">Số ca tử vong</Typography>
               <Typography variant="h4">
-                {world.NewDeaths}
+                {world.NewDeaths.toLocaleString()}
               </Typography>
             </CardContent>
           </Card>
@@ -61,7 +61,7 @@ function World(props) {
             <CardContent>
               <Typography variant="h6">Tổng số ca mắc</Typography>
               <Typography variant="h4" >
-                {world.TotalConfirmed}
+                {world.TotalConfirmed.toLocaleString()}
               </Typography>
             </CardContent>
           </Card>
@@ -72,7 +72,7 @@ function World(props) {
             <CardContent>
               <Typography variant="h6">Tổng số ca tử vong</Typography>
               <Typography variant="h4" >
-                {world.TotalDeaths}
+                {world.TotalDeaths.toLocaleString()}
               </Typography>
             </CardContent>
           </Card>

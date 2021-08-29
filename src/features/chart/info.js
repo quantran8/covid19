@@ -33,10 +33,10 @@ function Info(props) {
                   <CardContent >
                    
                         <Typography variant="h6"> Nhiễm</Typography>
-                        <Typography variant="h4">{lastUpdate.daily}</Typography>
+                        <Typography variant="h4">{lastUpdate.daily.toLocaleString()}</Typography>
                     
                         <Typography variant="h6">Tổng nhiễm</Typography>
-                        <Typography variant="h4">{lastUpdate.total}</Typography>
+                        <Typography variant="h4">{lastUpdate.total.toLocaleString()}</Typography>
                      
                   </CardContent>
                 </Card>
@@ -48,14 +48,14 @@ function Info(props) {
                   
                         <Typography variant="h6"> Khỏi</Typography>
                         <Typography variant="h4">
-                          {lastUpdate.recover}
+                          {lastUpdate.recover.toLocaleString()}
                         </Typography>
                     
                         <Typography variant="h6">
                           Tổng khỏi
                         </Typography>
                         <Typography variant="h4">
-                          {lastUpdate['total-recover']}
+                          {lastUpdate['total-recover'].toLocaleString()}
                         </Typography>
                     
                   
@@ -68,11 +68,11 @@ function Info(props) {
                   <CardContent>
                    
                         <Typography  variant="h6">tử vong</Typography>
-                        <Typography variant="h4">{lastUpdate.dead}</Typography>
+                        <Typography variant="h4">{lastUpdate.dead.toLocaleString()}</Typography>
                       
                         <Typography variant="h6">Tổng tử vong</Typography>
                         <Typography variant="h4">
-                          {lastUpdate['total-dead']}
+                          {lastUpdate['total-dead'].toLocaleString()}
                         </Typography>
                      
                   </CardContent>
@@ -84,7 +84,7 @@ function Info(props) {
                   <CardContent>
                     <Typography  variant="h6"> đang diều trị</Typography>
                     <Typography variant="h4">
-                      {lastUpdate.total - lastUpdate['total-recover']}
+                      {(lastUpdate.total - lastUpdate['total-recover']).toLocaleString()}
                     </Typography>
                   </CardContent>
                 </Card>
