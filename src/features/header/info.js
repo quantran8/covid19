@@ -33,7 +33,7 @@ function Info(props) {
                   <CardContent >
                    
                         <Typography variant="h6"> Nhiễm</Typography>
-                        <Typography variant="h4">{lastUpdate.daily.toLocaleString()}</Typography>
+                        <Typography variant="h4">+{lastUpdate.daily.toLocaleString()}</Typography>
                     
                         <Typography variant="h6">Tổng nhiễm</Typography>
                         <Typography variant="h4">{lastUpdate.total.toLocaleString()}</Typography>
@@ -48,7 +48,7 @@ function Info(props) {
                   
                         <Typography variant="h6"> Khỏi</Typography>
                         <Typography variant="h4">
-                          {lastUpdate.recover.toLocaleString()}
+                          +{lastUpdate.recover.toLocaleString()}
                         </Typography>
                     
                         <Typography variant="h6">
@@ -68,7 +68,7 @@ function Info(props) {
                   <CardContent>
                    
                         <Typography  variant="h6">tử vong</Typography>
-                        <Typography variant="h4">{lastUpdate.dead.toLocaleString()}</Typography>
+                        <Typography variant="h4">+{lastUpdate.dead.toLocaleString()}</Typography>
                       
                         <Typography variant="h6">Tổng tử vong</Typography>
                         <Typography variant="h4">

@@ -1,8 +1,8 @@
 import React from 'react';
-import Chart from './chart';
-import TableData from './TableData';
-import Vaccin from './Vaccin';
-import Info from './info';
+import Chart from './chart/chart';
+import TableData from './table/TableData';
+import Vaccin from './chart/Vaccin';
+import Info from './header/info';
 import { useSelector } from 'react-redux';
 import { Backdrop, Container } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';

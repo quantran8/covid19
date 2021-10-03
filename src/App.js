@@ -4,15 +4,15 @@ import Footer from 'component/Footer';
 import Login from 'component/Login';
 import Registed from 'component/Registed';
 import MenuAppBar from 'custom/Bar';
-import Main from 'features/chart/main';
+import Main from 'features/main';
 import fireBase from 'firebase';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import World from 'features/chart/World';
-import News from 'features/chart/News';
-import BackToTop from 'features/chart/Scoll';
+import World from 'features/world/World';
+import News from 'features/news/News';
+import BackToTop from 'custom/Scoll';
 import { covidCasesVN, casesWorld } from 'Api/covid19';
 import './App.scss';
 function App() {
@@ -30,10 +30,6 @@ function App() {
   useEffect(async () => {
     const res = await dispatch(getCovidData()).unwrap();
     console.log(res);
-    const res2 = await covidCasesVN();
-    const res3 = await casesWorld();
-    console.log(res3);
-    console.log(res3.data.data[0].table_world)
   }, []);
   return (
     <AnimatePresence>
