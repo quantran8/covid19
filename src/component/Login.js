@@ -38,7 +38,6 @@ function Login(props) {
             .auth()
             .signInWithEmailAndPassword(name, password)
             .then((userinfo) => {
-              console.log(userinfo.user);
               resetForm();
               history.push('/');
               setOpen(false);
@@ -46,7 +45,6 @@ function Login(props) {
             .catch((error) => {
               alert(error.message);
               setOpen(false);
-              console.log(error.message);
             });
         }}
       >

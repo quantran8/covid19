@@ -15,7 +15,6 @@ import { Button, Grid, Paper, Tabs, Tab } from '@material-ui/core';
 import CustomTooltip from 'custom/CustomTooltip';
 import { formatNumber, formatDate } from 'custom/format';
 function Chart(props) {
-  console.log('render' + Math.random());
   const chartHeight = 350;
   const VN = useSelector((state) => state.covid.VietNam);
   const HN = useSelector((state) => state.covid.HaNoi);

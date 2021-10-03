@@ -9,7 +9,7 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
   const world = await get.casesWorld();
   const data = await get.getNews();
 
-  const { Global } = world;
+  const  Global  = world.data.data[0].table_world;
   const { first, second } = vaccin.data;
   const hndata = HN.data.data;
   const hcmdata = HCM.data.data;
@@ -24,7 +24,7 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
     HoChiMinh: hcmdata,
     Province: cases,
     Vaccin: { first, second },
-    World: Global,
+    World: {...Global,Date:world.data.updated_at},
     News,
     Time:time
   };

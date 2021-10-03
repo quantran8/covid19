@@ -13,7 +13,7 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import World from 'features/chart/World';
 import News from 'features/chart/News';
 import BackToTop from 'features/chart/Scoll';
-import { covidCasesVN } from 'Api/covid19';
+import { covidCasesVN, casesWorld } from 'Api/covid19';
 import './App.scss';
 function App() {
   const location = useLocation();
@@ -31,7 +31,9 @@ function App() {
     const res = await dispatch(getCovidData()).unwrap();
     console.log(res);
     const res2 = await covidCasesVN();
-    console.log(res2);
+    const res3 = await casesWorld();
+    console.log(res3);
+    console.log(res3.data.data[0].table_world)
   }, []);
   return (
     <AnimatePresence>

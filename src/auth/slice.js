@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { firebaseUser } from 'Api/user';
-
+import fireBase from '../firebase';
 export const getUser = createAsyncThunk(
   'getuser/firebase',
   async (p, { dispatch }) => {
@@ -8,6 +8,7 @@ export const getUser = createAsyncThunk(
     return user;
   },
 );
+
 const auth = createSlice({
   name: 'auth',
   initialState: {},
