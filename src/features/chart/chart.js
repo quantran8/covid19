@@ -24,12 +24,12 @@ function Chart(props) {
   const [value, setValue] = useState('Việt Nam');
   const province = useSelector((state) => state.covid.Province);
   const provinceTotal = province
-    ? province.filter((item) => item.z > 10000).sort((a, b) => b.z - a.z)
+    ? province.filter((item) => item.z > 10000).sort((a, b) => b.z - a.z).slice(0,4)
     : [];
   const dailyProvince = province
-    ? province.filter((item) => item.y > 300).sort((a, b) => b.y - a.y)
+    ? province.filter((item) => item.y > 300).sort((a, b) => b.y - a.y).slice(0,4)
     : [];
-
+   console.log(dailyProvince)
   useEffect(() => {
     setDaily(VN);
   }, [VN]);
