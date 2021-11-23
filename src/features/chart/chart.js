@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux';
 import { Button, Grid, Paper, Tabs, Tab } from '@material-ui/core';
 import CustomTooltip from 'custom/CustomTooltip';
 import { formatNumber, formatDate } from 'custom/format';
+import ReChart from 'component/ReChart';
 function Chart(props) {
   const chartHeight = 350;
   const VN = useSelector((state) => state.covid.VietNam);
@@ -88,82 +89,25 @@ function Chart(props) {
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Số ca mắc tại {title} theo ngày</h2>
-            <ResponsiveContainer width="100%" height={chartHeight}>
-              <BarChart data={daily}>
-                <Bar dataKey="daily" fill="red" opacity={0.8} />
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={(date) => formatDate(date)}
-                />
-                <YAxis
-                  dataKey="daily"
-                  tickCount={6}
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </BarChart>
-            </ResponsiveContainer>
+            <ReChart type="bar" data={daily} Xkey="date" Ykey="daily" color="red" height={chartHeight}/>
           </Paper>
         </Grid>
-
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Tổng số ca mắc tại {title}</h2>
-            <ResponsiveContainer width="100%" height={chartHeight}>
-              <AreaChart data={daily}>
-                <Area dataKey="total" stroke="red" fill="red" />
-                <XAxis
-                  dataKey="date"
-                  tickFormatter={(date) => formatDate(date)}
-                />
-                <YAxis
-                  dataKey="total"
-                  tickCount={6}
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <ReChart type="area" data={daily} Xkey="date" Ykey="total" stroke="red" color="red" height={chartHeight}/>
           </Paper>
         </Grid>
-
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Tỉnh thành có số ca mắc trong ngày nhiều nhất</h2>
-            <ResponsiveContainer width="100%" height={chartHeight}>
-              <BarChart data={dailyProvince}>
-                <Bar dataKey="y" stroke="red" fill="red" opacity={0.7} />
-                <XAxis dataKey="x" />
-                <YAxis
-                  dataKey="y"
-                  tickCount={4}
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </BarChart>
-            </ResponsiveContainer>
+            <ReChart type="bar" data={dailyProvince} Xkey="x" Ykey="y" color="red" height={chartHeight}/>
           </Paper>
         </Grid>
-
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
-            <h2>Tỉnh thành có tổng số ca mắc nhiều nhất</h2>
-            <ResponsiveContainer width="100%" height={chartHeight}>
-              <BarChart data={provinceTotal}>
-                <Bar dataKey="z" stroke="red" fill="red" opacity={0.7} />
-                <XAxis dataKey="x" />
-                <YAxis
-                  dataKey="z"
-                  tickCount={4}
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </BarChart>
-            </ResponsiveContainer>
+            <h2>Tỉnh thành có số ca mắc nhiều nhất</h2>
+            <ReChart type="bar" data={provinceTotal} Xkey="x" Ykey="z" color="red" height={chartHeight}/>
           </Paper>
         </Grid>
       </Grid>

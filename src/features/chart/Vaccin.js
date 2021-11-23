@@ -12,6 +12,7 @@ import {
 } from 'recharts';
 import CustomTooltip from 'custom/CustomTooltip';
 import { formatNumber, formatDate } from 'custom/format';
+import Chart from 'component/ReChart';
 function Vaccin(props) {
   const vaccin = useSelector((state) => state.covid.Vaccin);
   return (
@@ -62,36 +63,13 @@ function Vaccin(props) {
         <Grid item xs={12} md={6} lg={6}>
           <Paper elevation={4}>
             <h2>Tổng số người đã tiêm 1 mũi vaccin</h2>
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart data={vaccin.first.datas}>
-                <Area dataKey="z" stroke="blue" fill="rgb(3, 252, 236)" />
-                <XAxis dataKey="x" tickFormatter={(date) => formatDate(date)} />
-                <YAxis
-                  dataKey="z"
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Đã tiêm 1 mũi" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <Chart data={vaccin.first.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" />
           </Paper>
         </Grid>
-
         <Grid item xs={12} md={6} lg={6}>
           <Paper elevation={4}>
             <h2>Tổng số người đã tiêm 2 mũi vaccin</h2>
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart data={vaccin.second.datas}>
-                <Area dataKey="z" stroke="blue" fill="rgb(3, 252, 236)" />
-                <XAxis dataKey="x" tickFormatter={(date) => formatDate(date)} />
-                <YAxis
-                  dataKey="z"
-                  tickFormatter={(number) => formatNumber(number)}
-                />
-                <Tooltip content={<CustomTooltip text="Đã tiêm 2 mũi" />} />
-                <CartesianGrid opacity={0.5} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+            <Chart data={vaccin.second.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" />
           </Paper>
         </Grid>
       </Grid>
