@@ -30,7 +30,7 @@ import {
                   tickCount={6}
                   tickFormatter={(number) => formatNumber(number)}
                 />
-                <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
+                <Tooltip content={<CustomTooltip text={props.content??"Số ca mắc"} />} />
                 <CartesianGrid opacity={0.5} vertical={false} />
               </BarChart>
                </ResponsiveContainer>
@@ -49,7 +49,7 @@ import {
            tickCount={6}
            tickFormatter={(number) => formatNumber(number)}
          />
-         <Tooltip content={<CustomTooltip text="Số ca mắc" />} />
+         <Tooltip content={<CustomTooltip text={props.content??"Số ca mắc"} />} />
          <CartesianGrid opacity={0.5} vertical={false} />
        </AreaChart>
         </ResponsiveContainer>

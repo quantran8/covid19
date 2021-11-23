@@ -63,13 +63,13 @@ function Vaccin(props) {
         <Grid item xs={12} md={6} lg={6}>
           <Paper elevation={4}>
             <h2>Tổng số người đã tiêm 1 mũi vaccin</h2>
-            <Chart data={vaccin.first.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" />
+            <Chart data={vaccin.first.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" content="Số mũi tiêm được"/>
           </Paper>
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
           <Paper elevation={4}>
             <h2>Tổng số người đã tiêm 2 mũi vaccin</h2>
-            <Chart data={vaccin.second.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" />
+            <Chart data={vaccin.second.datas} stroke="blue" height={400} Xkey="x" Ykey="z" color="rgb(3, 252, 236)" content="Số mũi tiêm được" />
           </Paper>
         </Grid>
       </Grid>
