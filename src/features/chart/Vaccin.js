@@ -49,7 +49,7 @@ function Vaccin(props) {
           <Card square className="recover">
           <CardContent >
             <Typography  variant="h6" component="h2">
-              Tổng số mũi Vaccin đã tiêm được
+              Tổng số người đã được tiêm ít nhất 1 mũi Vaccin
             </Typography>
             <Typography variant="h4" >
               {(vaccin.second.total + vaccin.first.total).toLocaleString()}
