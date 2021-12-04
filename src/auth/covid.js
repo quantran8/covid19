@@ -9,7 +9,7 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
   const world = await get.casesWorld();
   const data = await get.getNews();
 
-  const  Global  = world.data.data[0].table_world;
+  const  Global  = world.data.data.table_world;
   const { first, second } = vaccin.data;
   const hndata = HN.data.data;
   const hcmdata = HCM.data.data;
@@ -62,7 +62,7 @@ const covidData = createSlice({
       return state;
     },
     [getCovidData.rejected]: (state, action) => {
-      state.loading = false;
+      state.Loading = false;
       console.log('err');
     },
   },

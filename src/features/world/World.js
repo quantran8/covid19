@@ -32,7 +32,7 @@ function World(props) {
     </Container>
     :
     <Container>
-        <h4>Cập nhật : {moment(world.Date).fromNow()}</h4>
+        <h4>Cập nhật : {moment(world.Date).format("DD/MM/YYYY")}</h4>
       <Grid container >
         <Grid item xs={12} sm={6} md={6} lg={6}>
           <Card className="Cases" square>

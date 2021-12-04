@@ -34,6 +34,7 @@ export const vaccinationVN = async () => {
 export const casesWorld = async () => {
   const url = 'https://gw.vnexpress.net/cr/?name=world_coronavirus';
   const { data } = await axios.get(url);
+  console.log(data)
   return data;
 };
 
