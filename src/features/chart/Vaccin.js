@@ -23,7 +23,7 @@ function Vaccin(props) {
           <Card square className="recover">
           <CardContent >
             <Typography  variant="h6" component="h2">
-              Tổng số người đã tiêm 1 mũi Vaccin
+              Số người đã tiêm 1 mũi 
             </Typography>
             <Typography variant="h4"  >
               {vaccin.first.total&& vaccin.first.total.toLocaleString()}
@@ -36,7 +36,7 @@ function Vaccin(props) {
           <Card square className="recover">
           <CardContent >
             <Typography  variant="h6" component="h2">
-              Tổng số người đã tiêm 2 mũi Vaccin
+              Số người đã tiêm 2 mũi 
             </Typography>
             <Typography variant="h4" >
               {vaccin.second.total&&vaccin.second.total.toLocaleString()}
@@ -49,7 +49,7 @@ function Vaccin(props) {
           <Card square className="recover">
           <CardContent >
             <Typography  variant="h6" component="h2">
-              Tổng số người đã được tiêm ít nhất 1 mũi Vaccin
+              Số người đã được tiêm 
             </Typography>
             <Typography variant="h4" >
               {(vaccin.second.total + vaccin.first.total).toLocaleString()}
