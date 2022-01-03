@@ -12,7 +12,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
-import { setUser } from 'auth/slice';
+import { setUser } from 'slice/userSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -64,12 +64,12 @@ export default function MenuAppBar(props) {
           variant="contained"
           color="primary"
         >
-          Sign Out
+          Đăng xuất
         </Button>
       ) : (
         <Link onClick={handleClose} to="/login" className="link">
           <Button className={classes.btn} variant="contained" color="primary">
-            Sign In
+            Đăng nhập
           </Button>
         </Link>
       )}
@@ -79,7 +79,7 @@ export default function MenuAppBar(props) {
         variant="contained"
         color="primary"
       >
-        Close
+        Đóng
       </Button>
     </div>
   );

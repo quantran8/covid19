@@ -1,5 +1,5 @@
-import { getCovidData } from 'auth/covid';
-import { getUser } from 'auth/slice';
+import {getCovidData} from 'slice/covidSlice'
+import { getUser } from 'slice/userSlice';
 import Footer from 'component/Footer';
 import Login from 'component/Login';
 import Registed from 'component/Registed';
@@ -13,7 +13,6 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import World from 'features/world/World';
 import News from 'features/news/News';
 import BackToTop from 'custom/Scoll';
-import { covidCasesVN, casesWorld } from 'Api/covid19';
 import './App.scss';
 function App() {
   const location = useLocation();

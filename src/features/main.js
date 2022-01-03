@@ -9,7 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 import { motion } from 'framer-motion';
-import 'public/scss/main.scss';
+import './main.scss';
 function Main(props) {
   const loading = useSelector((state) => state.covid.Loading);
   return (

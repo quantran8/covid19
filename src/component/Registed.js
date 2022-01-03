@@ -19,13 +19,13 @@ function Registed(props) {
       initialValues={initialValues}
       validationSchema={Yup.object({
         email: Yup.string()
-          .email('invalid email')
-          .required('please enter your email'),
-        name: Yup.string().required('please enter your acount name'),
-        password: Yup.string().required('please enter your password'),
+          .email('email không hợp lệ')
+          .required('Vui lòng nhập email'),
+        name: Yup.string().required('Vui lòng nhập tên tài khoản'),
+        password: Yup.string().required('Vui lòng nhập mật khẩu'),
         confirm: Yup.string()
-          .oneOf([Yup.ref('password'), null], 'password not matched')
-          .required('please confirm your password'),
+          .oneOf([Yup.ref('password'), null], 'Mật khẩu không khớp')
+          .required('Vui lòng xác nhận mật khẩu'),
       })}
       onSubmit={(value, { resetForm }) => {
         const { email, name, password } = value;
@@ -78,9 +78,9 @@ function Registed(props) {
         </div>
 
         <Button variant="contained" color="primary" type="submit">
-          Submit
+          Đăng kí
         </Button>
-        <Link to="/login">Sign in </Link>
+        <Link to="/login">Đăng nhập ngay </Link>
       </Form>
     </Formik>
   );

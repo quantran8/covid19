@@ -28,8 +28,8 @@ function Login(props) {
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object({
-          name: Yup.string().required('please enter your acount name'),
-          password: Yup.string().required('please enter your password'),
+          name: Yup.string().required('Vui lòng nhập tên tài khoản'),
+          password: Yup.string().required('Vui lòng nhập mật khẩu'),
         })}
         onSubmit={(value, { resetForm }) => {
           setOpen(true);
@@ -69,12 +69,12 @@ function Login(props) {
             />
           </div>
           <Button variant="contained" color="primary" type="submit">
-            submit
+            Đăng nhập
           </Button>
-          <Link to="/registed">Dont have acount ?</Link>
+          <Link to="/registed">Chưa có tài khoản ?</Link>
         </Form>
       </Formik>
-      <h3>or</h3>
+      <h3>Hoặc</h3>
       <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={fireBase.auth()} />
       <Backdrop style={{ zIndex: '10' }} open={open}>
         <CircularProgress style={{ color: 'white' }} />
