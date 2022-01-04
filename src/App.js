@@ -1,18 +1,18 @@
-import {getCovidData} from 'slice/covidSlice'
-import { getUser } from 'slice/userSlice';
 import Footer from 'component/Footer';
 import Login from 'component/Login';
+import News from 'component/News';
 import Registed from 'component/Registed';
+import World from 'component/World';
 import MenuAppBar from 'custom/Bar';
-import Main from 'features/main';
+import BackToTop from 'custom/Scoll';
+import HomePage from 'features/HomePage';
 import fireBase from 'firebase';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import World from 'features/world/World';
-import News from 'features/news/News';
-import BackToTop from 'custom/Scoll';
+import { getCovidData } from 'slice/covidSlice';
+import { getUser } from 'slice/userSlice';
 import './App.scss';
 function App() {
   const location = useLocation();
@@ -36,7 +36,7 @@ function App() {
         <MenuAppBar />
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
-            <Main />
+            <HomePage />
           </Route>
           <Route path="/world">
             <World />
