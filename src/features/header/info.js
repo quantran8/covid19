@@ -6,7 +6,6 @@ import moment from 'moment';
 import 'moment/locale/vi';  
 function Info(props) {
   moment.locale('vi');
-  console.log(moment.locale('vi'));
   const data = useSelector((state) => state.covid.VietNam);
   const time = useSelector((state) => state.covid.Time);
   const lastUpdate = data[data.length - 1];

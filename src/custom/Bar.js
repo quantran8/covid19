@@ -3,21 +3,29 @@ import {
   AppBar,
   Button,
   IconButton,
-  Modal,
-  TextField,
+  List,
+  ListItem,
+  
+  ListItemText,
   Toolbar,
   Tooltip,
   Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails
 } from '@material-ui/core';
+import ListItemButton from '@mui/material/ListItemButton';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { setUser } from 'auth/slice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import fireBase from '../firebase';
 import { Link, NavLink } from 'react-router-dom';
+import SideBar from 'component/SideBar';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuAppBar(props) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const auth = useSelector((state) => state.user);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -55,34 +62,7 @@ export default function MenuAppBar(props) {
     dispatch(setUser({}));
     setOpen(false);
   };
-  const body = (
-    <div className='menu' >
-      {auth.id ? (
-        <Button
-          className={classes.btn}
-          onClick={handleonclick}
-          variant="contained"
-          color="primary"
-        >
-          Sign Out
-        </Button>
-      ) : (
-        <Link onClick={handleClose} to="/login" className="link">
-          <Button className={classes.btn} variant="contained" color="primary">
-            Sign In
-          </Button>
-        </Link>
-      )}
-      <Button
-        className={classes.btn}
-        onClick={handleClose}
-        variant="contained"
-        color="primary"
-      >
-        Close
-      </Button>
-    </div>
-  );
+ 
 
   return (
     <div className="appBar">
@@ -131,7 +111,7 @@ export default function MenuAppBar(props) {
         </Toolbar>
       </AppBar>
       <Drawer open={open} onClose={handleClose}>
-        {body}
+       <SideBar setOpen={setOpen}/>
       </Drawer>
     </div>
   );

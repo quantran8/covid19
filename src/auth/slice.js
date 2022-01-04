@@ -16,6 +16,10 @@ const auth = createSlice({
     setUser: (state, action) => {
       return (state = action.payload);
     },
+    helperInfo:(state, action) => {
+      state.HelperInfo = action.payload;
+      return state;
+   }
   },
   extraReducers: {
     [getUser.pending]: (state, action) => {
@@ -32,5 +36,5 @@ const auth = createSlice({
 });
 
 const { actions, reducer } = auth;
-export const { setUser } = actions;
+export const { setUser,helperInfo } = actions;
 export default reducer;

@@ -30,7 +30,6 @@ function Chart(props) {
   const dailyProvince = province
     ? province.filter((item) => item.y > 300).sort((a, b) => b.y - a.y).slice(0,4)
     : [];
-   console.log(dailyProvince)
   useEffect(() => {
     setDaily(VN);
   }, [VN]);

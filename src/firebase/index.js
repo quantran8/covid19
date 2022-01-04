@@ -14,4 +14,5 @@ export const uiConfig = {
   signInSuccessUrl: '/',
   signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
 };
+export const FirestoreDB = fireBase.firestore();
 export default fireBase;

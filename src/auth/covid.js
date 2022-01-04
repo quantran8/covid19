@@ -39,12 +39,15 @@ const initialState = {
   World: {},
   News:[],
   Time:'',
+  HelperInfo:{},
   Loading: false,
 };
 const covidData = createSlice({
   name: 'covidData',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+   
+  },
   extraReducers: {
     [getCovidData.pending]: (state, action) => {
       state.Loading = true;
@@ -68,5 +71,5 @@ const covidData = createSlice({
   },
 });
 
-const { reducer } = covidData;
+const { reducer,actions } = covidData;
 export default reducer;
