@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardContent, Typography, Paper, Grid } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import {
-  AreaChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Area,
-  Tooltip,
-  CartesianGrid,
-} from 'recharts';
-import CustomTooltip from 'custom/CustomTooltip';
-import { formatNumber, formatDate } from 'custom/format';
 import Chart from 'component/ReChart';
 function Vaccin(props) {
   const vaccin = useSelector((state) => state.covid.Vaccin);

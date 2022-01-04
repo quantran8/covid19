@@ -1,19 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import {
-  AreaChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Area,
-  Tooltip,
-  CartesianGrid,
-  BarChart,
-  Bar,
-} from 'recharts';
 import { useSelector } from 'react-redux';
 import { Button, Grid, Paper, Tabs, Tab } from '@material-ui/core';
-import CustomTooltip from 'custom/CustomTooltip';
-import { formatNumber, formatDate } from 'custom/format';
 import ReChart from 'component/ReChart';
 function Chart(props) {
   const chartHeight = 350;

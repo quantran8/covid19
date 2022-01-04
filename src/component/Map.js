@@ -2,7 +2,7 @@ import { Button } from '@material-ui/core';
 import { getAllRequest } from 'Api/firebasedb';
 import { setUser } from 'auth/slice';
 import { FirestoreDB } from 'firebase/index';
-import img from "public/scss/img.jpg";
+import img from "public/img/img.jpg";
 import React, { useEffect, useState,useRef } from 'react';
 import ReactMapGL, { GeolocateControl, Marker, NavigationControl, Popup,Source,Layer } from 'react-map-gl';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,20 +1,18 @@
-import { getCovidData } from 'auth/covid';
-import { getUser } from 'auth/slice';
 import Footer from 'component/Footer';
 import Login from 'component/Login';
+import News from 'component/News';
 import Registed from 'component/Registed';
+import World from 'component/World';
 import MenuAppBar from 'custom/Bar';
-import Main from 'features/main';
-import fireBase ,{FirestoreDB}from 'firebase/index';
+import BackToTop from 'custom/Scoll';
+import HomePage from 'features/HomePage';
+import fireBase from 'firebase';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import World from 'features/world/World';
-import News from 'features/news/News';
-import BackToTop from 'custom/Scoll';
-import HelperForm from 'component/HelperForm';
-import { covidCasesVN, casesWorld,getAddress } from 'Api/covid19';
+import { getCovidData } from 'slice/covidSlice';
+import { getUser } from 'slice/userSlice';
 import './App.scss';
 import Map from 'component/Map';
 
@@ -63,7 +61,7 @@ const unsub = FirestoreDB.collection("users").where("name","==","quan").get().th
         <MenuAppBar />
         <Switch location={location} key={location.pathname}>
           <Route path="/" exact>
-            <Main />
+            <HomePage />
           </Route>
           <Route path="/world">
             <World />

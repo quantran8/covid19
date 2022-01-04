@@ -18,8 +18,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import { setUser } from 'auth/slice';
+
+import { setUser } from 'slice/userSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -62,7 +62,6 @@ export default function MenuAppBar(props) {
     dispatch(setUser({}));
     setOpen(false);
   };
- 
 
   return (
     <div className="appBar">

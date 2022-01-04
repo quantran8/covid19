@@ -1,15 +1,14 @@
-import React from 'react';
-import Chart from './chart/chart';
-import TableData from './table/TableData';
-import Vaccin from './chart/Vaccin';
-import Info from './header/info';
-import { useSelector } from 'react-redux';
-import { Backdrop, Container } from '@material-ui/core';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { Container } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
-
+import Chart from 'component/chart';
+import Info from 'component/info';
+import TableData from 'component/TableData';
+import Vaccin from 'component/Vaccin';
 import { motion } from 'framer-motion';
-import 'public/scss/main.scss';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './main.scss';
+
 function Main(props) {
   const loading = useSelector((state) => state.covid.Loading);
   return (
