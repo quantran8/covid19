@@ -16,7 +16,7 @@ import {
 import redPin from 'public/img/pin.png';
 import bluePin from 'public/img/pin2.png';
 import brownPin from 'public/img/pin3.png';
-import ReactMapGL, {
+import MapGL, {
   GeolocateControl,
   Layer,
   Marker,
@@ -29,6 +29,9 @@ import firebase from 'firebase';
 import {token} from 'Api/user';
 dotenv.config();
 const Map = () => {
+
+
+
   const dispatch = useDispatch();
   const size = 40;
   const user = useSelector((state) => state.user);
@@ -170,7 +173,7 @@ const Map = () => {
       )}
 
       <div>
-        <ReactMapGL
+        <MapGL
           {...viewport}
           mapboxApiAccessToken={token}
           mapStyle="mapbox://styles/quantran8/ckxfn98is2qdt14qma16ydu84"
@@ -283,7 +286,7 @@ const Map = () => {
               </Button>
             </Popup>
           )}
-        </ReactMapGL>
+        </MapGL>
       </div>
     </div>
   );
