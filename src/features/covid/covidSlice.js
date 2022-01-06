@@ -9,7 +9,6 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
   const vaccin = await get.vaccinationVN();
   const world = await get.casesWorld();
   const data = await get.getNews();
-  const RequestHelp = await getAllRequest();
   const Global = world.data.data.table_world;
   const { first, second } = vaccin.data;
   const hndata = HN.data.data;
@@ -40,16 +39,13 @@ const initialState = {
   World: {},
   News: [],
   Time: '',
-  RequestHelp: [],
   Loading: false,
 };
 const covidData = createSlice({
   name: 'covidData',
   initialState: initialState,
   reducers: {
-    addRequestHelp: (state, action) => {
-      state.RequestHelp.push(action.payload);
-    },
+
   },
   extraReducers: {
     [getCovidData.pending]: (state, action) => {

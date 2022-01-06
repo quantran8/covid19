@@ -42,7 +42,10 @@ const UserInteresedRequest = () => {
       ...request,
       helped: true,
     });
-    dispatch(updateInteresedRequest(id));
+    dispatch(updateInteresedRequest({
+      ...request,
+      helped: true,
+    }));
   };
   /*---------remove request from redux and firebase------*/
   const handleRemove = (id) => {
@@ -65,7 +68,7 @@ const UserInteresedRequest = () => {
       width: 250,
       editable: false,
       renderCell: (data) => {
-        if (data.row.status == 'Đã được giúp đỡ')
+        if (data.row.status == 'Đã giúp đỡ')
           return (
             <>
               <Button variant="contained" disabled>

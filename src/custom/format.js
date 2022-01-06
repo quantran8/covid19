@@ -9,6 +9,6 @@ export const formatDate = (date) => {
   if (date) return `${date.split('-').reverse().join('/')}`;
 };
 export const getDateTime = (date) => {
-  const datetime = new Date((date?.seconds*1000));
+  const datetime = new Date((date*1000));
   return `${datetime.getDate()}/${datetime.getMonth()+1}/${datetime.getFullYear()}`;
 }

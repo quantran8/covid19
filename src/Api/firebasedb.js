@@ -6,10 +6,18 @@ export const getAllRequest = async (ag1, operator, ag2) => {
     const data = await FirestoreDB.collection('users')
       .where(ag1, operator, ag2)
       .get();
-    data.forEach((item) => AllRequest.push({ ...item.data(), id: item.id }));
+    data.forEach((item) => AllRequest.push({
+       ...item.data(), 
+       id: item.id,
+       created: item.data().created.seconds
+       }));
   } else {
     const data = await FirestoreDB.collection('users').get();
-    data.forEach((item) => AllRequest.push({ ...item.data(), id: item.id }));
+    data.forEach((item) => AllRequest.push({
+       ...item.data(), 
+       id: item.id,
+       created: item.data().created.seconds
+      }));
   }
 
   return AllRequest;

@@ -27,9 +27,6 @@ import MapGL, {
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
 import {token} from 'Api/user';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import mapboxgl from 'mapbox-gl';
-mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 dotenv.config();
 const Map = () => {
 
@@ -48,6 +45,7 @@ const Map = () => {
   const [marker, setMarker] = useState({ lng: 105.857792, lat: 21.024092 });
   const [selected, setSelected] = useState(null);
   const allMarker = user.requestOfAllUser;
+  /*------cluster data-------- */
   const geojson = {
     type: 'FeatureCollection',
     features: user.requestOfAllUser.map((item) => {
@@ -138,6 +136,7 @@ const Map = () => {
       lat: event.lngLat[1],
     });
   }, []);
+  
   useEffect(() => {
     if (user.requestInfo.id) {
       const item = user.userAllRequest.find(
@@ -283,7 +282,7 @@ const Map = () => {
                 variant="contained"
                 color="primary"
                 onClick={handlePopUpClick}
-                disabled={selected.helped || selected.userInteresed}
+                disabled={selected.helped || selected.userInteresed?true:false}
               >
                 Quan tâm
               </Button>

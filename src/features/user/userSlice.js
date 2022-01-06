@@ -66,19 +66,13 @@ const auth = createSlice({
     updateInteresedRequest: (state, action) => {
       console.log(action.payload);
       const index = state.userInteresed.findIndex(
-        (item) => item.id == action.payload,
+        (item) => item.id == action.payload.id,
       );
-      state.userInteresed[index] = {
-        ...state.userInteresed[index],
-        helped: true,
-      };
+      state.userInteresed[index] = action.payload
       const index2 = state.requestOfAllUser.findIndex(
         (item) => item.id == action.payload.id,
       );
-      state.requestOfAllUser[index] = {
-        ...state.requestOfAllUser[index],
-        helped: true,
-      };
+      state.requestOfAllUser[index] = action.payload;
     },
     deleteInteresedRequest: (state, action) => {
       state.userInteresed = state.userInteresed.filter(
