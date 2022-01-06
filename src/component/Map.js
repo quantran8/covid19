@@ -172,7 +172,7 @@ const Map = () => {
       <div>
         <ReactMapGL
           {...viewport}
-          mapboxApiAccessToken={process.env.REACT_APP_TOKEN || token}
+          mapboxApiAccessToken={token}
           mapStyle="mapbox://styles/quantran8/ckxfn98is2qdt14qma16ydu84"
           width="100%"
           height="750px"

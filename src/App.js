@@ -9,8 +9,8 @@ import HomePage from 'features/covid/HomePage';
 import fireBase from 'firebase';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Route, Switch, useLocation,} from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { Route, Switch, useLocation,Redirect} from 'react-router-dom';
 import { getCovidData } from 'features/covid/covidSlice';
 import { getUser } from 'features/user/userSlice';
 import './App.scss';
@@ -22,6 +22,7 @@ import PrivateRoute from 'custom/PrivateRoute';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   useEffect(async () => {
     const unregister = fireBase.auth().onAuthStateChanged(async (user) => {
       if (!user) console.error('no user');
@@ -63,9 +64,9 @@ function App() {
           <Route path="/request_help/:id">
             <RequestHelpForm />
           </Route>
-          <PrivateRoute path="/account">
-            <UserPage />
-          </PrivateRoute>
+          <Route path="/account">
+            {user.userInfo.id?<UserPage />:<Login/>}
+          </Route>
         </Switch>
         <Footer />
         <BackToTop />
