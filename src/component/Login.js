@@ -71,7 +71,7 @@ function Login(props) {
           <Button variant="contained" color="primary" type="submit">
             Đăng nhập
           </Button>
-          <Link to="/registed">Chưa có tài khoản ?</Link>
+          <Link to="/register">Chưa có tài khoản ?</Link>
         </Form>
       </Formik>
       <h3>Hoặc</h3>

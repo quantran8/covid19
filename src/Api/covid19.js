@@ -47,13 +47,13 @@ export const getAddress = async (add) => {
   const options = {
     method: 'GET',
     url: 'https://google-maps-geocoding.p.rapidapi.com/geocode/json',
-    params: {address: 'yên ninh,hiền ninh,sóc sơn, hà nội', language: 'en'},
+    params: { address: 'yên ninh,hiền ninh,sóc sơn, hà nội', language: 'en' },
     headers: {
       'x-rapidapi-host': 'google-maps-geocoding.p.rapidapi.com',
-      'x-rapidapi-key': '3ea9f9e815msh616b6775e7d2a13p15842cjsn65514aa37d1a'
-    }
+      'x-rapidapi-key': '3ea9f9e815msh616b6775e7d2a13p15842cjsn65514aa37d1a',
+    },
   };
-  const {data} = await axios(options)
-  console.log(data)
-  return data ;
-}
+  const { data } = await axios(options);
+  console.log(data);
+  return data;
+};

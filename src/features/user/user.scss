@@ -1,0 +1,15 @@
+.user-control {
+  display: flex;
+  &-sidebar {
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  &-action {
+    width: 100%;
+  }
+  @media screen and (max-width : 750px){
+    display: flex;
+    flex-direction: column;
+    
+  }
+}

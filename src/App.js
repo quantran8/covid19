@@ -1,20 +1,23 @@
 import Footer from 'component/Footer';
 import Login from 'component/Login';
 import News from 'component/News';
-import Registed from 'component/Registed';
+import Register from 'component/Register';
 import World from 'component/World';
-import MenuAppBar from 'custom/Bar';
+import MenuAppBar from 'component/AppBar';
 import BackToTop from 'custom/Scoll';
-import HomePage from 'features/HomePage';
+import HomePage from 'features/covid/HomePage';
 import fireBase from 'firebase';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Switch, useLocation } from 'react-router-dom';
-import { getCovidData } from 'slice/covidSlice';
-import { getUser } from 'slice/userSlice';
+import { Route, Switch, useLocation,} from 'react-router-dom';
+import { getCovidData } from 'features/covid/covidSlice';
+import { getUser } from 'features/user/userSlice';
 import './App.scss';
 import Map from 'component/Map';
+import RequestHelpForm from 'component/RequestHelpForm';
+import UserPage from 'features/user/UserPage';
+import PrivateRoute from 'custom/PrivateRoute';
 
 function App() {
   const location = useLocation();
@@ -30,30 +33,6 @@ function App() {
 
   useEffect(async () => {
     const res = await dispatch(getCovidData()).unwrap();
-
-//   FirestoreDB.collection("users").add({
-//    helper:["ok,",1,2],
-//    ob:{
-//      name:"quan",
-//      age:21
-//    }
-// })
-// .then((docRef) => {
-//     console.log("Document written with ID: ", docRef.id);
-// })
-// .catch((error) => {
-//     console.error("Error adding document: ", error);
-// });
-  
-const unsub = FirestoreDB.collection("users").where("name","==","quan").get().then((querySnapshot) => {
-  querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-  });
- 
-  // const data = await getAddress();
-  // console.log(data);
-});
-
   }, []);
   return (
     <AnimatePresence>
@@ -72,15 +51,21 @@ const unsub = FirestoreDB.collection("users").where("name","==","quan").get().th
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/registed">
-            <Registed />
+          <Route path="/register">
+            <Register />
           </Route>
-          <Route path="/map">
+          <Route exact path="/map">
             <Map />
           </Route>
-          <Route path="/helperform">
-            <HelperForm />
+          <Route exact path="/request_help">
+            <RequestHelpForm />
           </Route>
+          <Route path="/request_help/:id">
+            <RequestHelpForm />
+          </Route>
+          <PrivateRoute path="/account">
+            <UserPage />
+          </PrivateRoute>
         </Switch>
         <Footer />
         <BackToTop />

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import { TextField, FormControl } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +19,7 @@ function Customfield(props) {
   const { form, field, type } = props;
   const { name } = field;
   const classes = useStyles();
-  return props.textArea?(
+  return props.textArea ? (
     <FormControl className={classes.root} noValidate autoComplete="on">
       <TextareaAutosize
         error={form.errors[name] && form.touched[name] ? true : false}
@@ -27,10 +27,10 @@ function Customfield(props) {
         {...field}
         minRows={9}
         placeholder="Nội dung"
-        style={{ width: 460 ,maxWidth:'100%'}}
+        style={{ width: 460, maxWidth: '100%' }}
       />
     </FormControl>
-  ):(
+  ) : (
     <FormControl className={classes.root} noValidate autoComplete="on">
       <TextField
         error={form.errors[name] && form.touched[name] ? true : false}
@@ -39,7 +39,7 @@ function Customfield(props) {
         {...field}
       />
     </FormControl>
-  )
+  );
 }
 
 export default Customfield;

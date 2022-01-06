@@ -12,10 +12,16 @@ function Chart(props) {
   const [value, setValue] = useState('Việt Nam');
   const province = useSelector((state) => state.covid.Province);
   const provinceTotal = province
-    ? province.filter((item) => item.z > 10000).sort((a, b) => b.z - a.z).slice(0,4)
+    ? province
+        .filter((item) => item.z > 10000)
+        .sort((a, b) => b.z - a.z)
+        .slice(0, 4)
     : [];
   const dailyProvince = province
-    ? province.filter((item) => item.y > 300).sort((a, b) => b.y - a.y).slice(0,4)
+    ? province
+        .filter((item) => item.y > 300)
+        .sort((a, b) => b.y - a.y)
+        .slice(0, 4)
     : [];
   useEffect(() => {
     setDaily(VN);
@@ -75,25 +81,54 @@ function Chart(props) {
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Số ca mắc tại {title} theo ngày</h2>
-            <ReChart type="bar" data={daily} Xkey="date" Ykey="daily" color="red" height={chartHeight}/>
+            <ReChart
+              type="bar"
+              data={daily}
+              Xkey="date"
+              Ykey="daily"
+              color="red"
+              height={chartHeight}
+            />
           </Paper>
         </Grid>
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Tổng số ca mắc tại {title}</h2>
-            <ReChart type="area" data={daily} Xkey="date" Ykey="total" stroke="red" color="red" height={chartHeight}/>
+            <ReChart
+              type="area"
+              data={daily}
+              Xkey="date"
+              Ykey="total"
+              stroke="red"
+              color="red"
+              height={chartHeight}
+            />
           </Paper>
         </Grid>
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Tỉnh thành có số ca mắc trong ngày nhiều nhất</h2>
-            <ReChart type="bar" data={dailyProvince} Xkey="x" Ykey="y" color="red" height={chartHeight}/>
+            <ReChart
+              type="bar"
+              data={dailyProvince}
+              Xkey="x"
+              Ykey="y"
+              color="red"
+              height={chartHeight}
+            />
           </Paper>
         </Grid>
         <Grid item xs={12} md={6} lg={6} className="chartItem">
           <Paper elevation={4}>
             <h2>Tỉnh thành có số ca mắc nhiều nhất</h2>
-            <ReChart type="bar" data={provinceTotal} Xkey="x" Ykey="z" color="red" height={chartHeight}/>
+            <ReChart
+              type="bar"
+              data={provinceTotal}
+              Xkey="x"
+              Ykey="z"
+              color="red"
+              height={chartHeight}
+            />
           </Paper>
         </Grid>
       </Grid>

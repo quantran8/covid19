@@ -68,7 +68,9 @@ function TableData(props) {
                     >
                       +{row.y.toLocaleString()}
                     </TableCell>
-                    <TableCell align="right">{row.z.toLocaleString()}</TableCell>
+                    <TableCell align="right">
+                      {row.z.toLocaleString()}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

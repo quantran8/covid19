@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import * as get from 'Api/covid19';
+import { getAllRequest } from 'Api/firebasedb';
 export const getCovidData = createAsyncThunk('covid/data', async () => {
   const VN = await get.covidCasesVN();
   const HN = await get.covidCasesHanoi();
@@ -8,8 +9,8 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
   const vaccin = await get.vaccinationVN();
   const world = await get.casesWorld();
   const data = await get.getNews();
-
-  const  Global  = world.data.data.table_world;
+  const RequestHelp = await getAllRequest();
+  const Global = world.data.data.table_world;
   const { first, second } = vaccin.data;
   const hndata = HN.data.data;
   const hcmdata = HCM.data.data;
@@ -24,9 +25,9 @@ export const getCovidData = createAsyncThunk('covid/data', async () => {
     HoChiMinh: hcmdata,
     Province: cases,
     Vaccin: { first, second },
-    World: {...Global,Date:world.data.updated_at},
+    World: { ...Global, Date: world.data.updated_at },
     News,
-    Time:time
+    Time: time,
   };
 });
 
@@ -37,16 +38,18 @@ const initialState = {
   Province: [],
   Vaccin: { first: '', second: '' },
   World: {},
-  News:[],
-  Time:'',
-  HelperInfo:{},
+  News: [],
+  Time: '',
+  RequestHelp: [],
   Loading: false,
 };
 const covidData = createSlice({
   name: 'covidData',
   initialState: initialState,
   reducers: {
-   
+    addRequestHelp: (state, action) => {
+      state.RequestHelp.push(action.payload);
+    },
   },
   extraReducers: {
     [getCovidData.pending]: (state, action) => {
@@ -71,5 +74,6 @@ const covidData = createSlice({
   },
 });
 
-const { reducer,actions } = covidData;
+const { reducer, actions } = covidData;
+export const { addRequestHelp } = actions;
 export default reducer;

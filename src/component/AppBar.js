@@ -5,21 +5,20 @@ import {
   IconButton,
   List,
   ListItem,
-  
   ListItemText,
   Toolbar,
   Tooltip,
   Typography,
   Accordion,
   AccordionSummary,
-  AccordionDetails
+  AccordionDetails,
 } from '@material-ui/core';
 import ListItemButton from '@mui/material/ListItemButton';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import { setUser } from 'slice/userSlice';
+import { setUser } from 'features/user/userSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -46,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
-
 
 export default function MenuAppBar(props) {
   const dispatch = useDispatch();
@@ -93,7 +91,7 @@ export default function MenuAppBar(props) {
               Tin tức
             </NavLink>
           </Typography>
-          {auth.id && (
+          {auth.userInfo.id && (
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -101,7 +99,7 @@ export default function MenuAppBar(props) {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <Tooltip title={auth.email}>
+                <Tooltip title={auth.userInfo.email}>
                   <AccountCircle />
                 </Tooltip>
               </IconButton>
@@ -110,7 +108,7 @@ export default function MenuAppBar(props) {
         </Toolbar>
       </AppBar>
       <Drawer open={open} onClose={handleClose}>
-       <SideBar setOpen={setOpen}/>
+        <SideBar setOpen={setOpen} />
       </Drawer>
     </div>
   );

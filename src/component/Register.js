@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 import Customfield from '../custom/customfield';
 import fireBase from '../firebase';
 import { useHistory, Link } from 'react-router-dom';
-function Registed(props) {
+function Register(props) {
   const history = useHistory();
   const initialValues = {
     email: '',
@@ -86,4 +86,4 @@ function Registed(props) {
   );
 }
 
-export default Registed;
+export default Register;

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from 'slice/userSlice';
-import covidReducer from 'slice/covidSlice';
+import userReducer from 'features/user/userSlice';
+import covidReducer from 'features/covid/covidSlice';
 const rootReducer = {
   user: userReducer,
   covid: covidReducer,

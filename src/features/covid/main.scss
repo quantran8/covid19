@@ -20,31 +20,28 @@
   max-width: 100%;
   margin: 0 auto;
   margin-top: 50px;
-  
-  
 }
 .title {
-  line-height:50px;
-  border-radius:10px;
+  line-height: 50px;
+  border-radius: 10px;
   margin-bottom: 50px;
   background-color: rgb(230, 230, 230);
 }
 @mixin setBg($bgcolor, $text) {
-  h6{
-    background-color:$bgcolor;
+  h6 {
+    background-color: $bgcolor;
     color: $text;
     border-radius: 7px;
-    width:180px;
+    width: 180px;
     max-width: 100%;
     margin: 0 auto;
-    font-weight:50;
-    margin-bottom:10px;
+    font-weight: 50;
+    margin-bottom: 10px;
   }
-  h4{
-    color:$text;
+  h4 {
+    color: $text;
     font-weight: bold;
   }
- 
 }
 
 .Cases {
@@ -63,8 +60,8 @@
   align-items: center;
   @include setBg(rgba(153, 150, 150, 0.445), black);
 }
-.vaccincation{
-  background-color:rgba(88, 226, 88, 0.411);
-  color:rgb(41, 146, 41);
+.vaccincation {
+  background-color: rgba(88, 226, 88, 0.411);
+  color: rgb(41, 146, 41);
   border-radius: 10px;
 }
