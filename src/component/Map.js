@@ -27,6 +27,9 @@ import MapGL, {
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
 import {token} from 'Api/user';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import mapboxgl from 'mapbox-gl';
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 dotenv.config();
 const Map = () => {
 
