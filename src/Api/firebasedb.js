@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FirestoreDB } from 'firebase/index';
+import { getDateTime } from 'custom/format';
 export const getAllRequest = async (ag1, operator, ag2) => {
   const AllRequest = [];
   if (ag1 && operator && ag2) {
@@ -9,14 +10,12 @@ export const getAllRequest = async (ag1, operator, ag2) => {
     data.forEach((item) => AllRequest.push({
        ...item.data(), 
        id: item.id,
-       created: item.data().created.seconds
        }));
   } else {
     const data = await FirestoreDB.collection('users').get();
     data.forEach((item) => AllRequest.push({
        ...item.data(), 
        id: item.id,
-       created: item.data().created.seconds
       }));
   }
 

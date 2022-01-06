@@ -27,11 +27,11 @@ import MapGL, {
 import { useDispatch, useSelector } from 'react-redux';
 import firebase from 'firebase';
 import {token} from 'Api/user';
+import { getDateTime } from 'custom/format';
 dotenv.config();
 const Map = () => {
 
-
-
+console.log("render")
   const dispatch = useDispatch();
   const size = 40;
   const user = useSelector((state) => state.user);
@@ -66,14 +66,14 @@ const Map = () => {
       userEmail: user.userInfo.email,
       userInteresed: '',
     };
-    /*-----------check is add or update-------------*/
+    /*-----------check is add or update -------------*/
     if (user.requestInfo.id) {
       dispatch(updateRequest({ ...newRequestInfo, id: user.requestInfo.id }));
       updateRequestFB(user.requestInfo.id, newRequestInfo);
     } else {
       const data = await addRequestFB({
         ...newRequestInfo,
-        created: firebase.firestore.FieldValue.serverTimestamp()
+        created: getDateTime()
       });
       dispatch(addRequest({ 
         ...newRequestInfo, 
@@ -119,12 +119,15 @@ const Map = () => {
       setSelected(marker);
     }
   };
+  /*--------open popup info for each marker and update status request if user click interesed---------- */
   const handlePopUpClick = () => {
     setInteresed(true);
     const newRequestInfo = {
       ...selected,
       userInteresed: user.userInfo.email,
+      
     };
+    setSelected(newRequestInfo);
     updateRequestFB(selected.id, newRequestInfo);
     dispatch(addInteresedRequest(newRequestInfo));
     dispatch(updateRequest(newRequestInfo));
@@ -136,7 +139,7 @@ const Map = () => {
       lat: event.lngLat[1],
     });
   }, []);
-  
+  /*-----set map center if update request-----------*/
   useEffect(() => {
     if (user.requestInfo.id) {
       const item = user.userAllRequest.find(
@@ -282,7 +285,7 @@ const Map = () => {
                 variant="contained"
                 color="primary"
                 onClick={handlePopUpClick}
-                disabled={selected.helped || selected.userInteresed?true:false}
+                disabled={selected.helped==true?true:(selected.userInteresed?true:false)}
               >
                 Quan tâm
               </Button>

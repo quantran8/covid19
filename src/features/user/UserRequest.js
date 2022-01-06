@@ -104,7 +104,7 @@ const UserRequest = () => {
       id: item.id,
       title: item.title,
       status: item.helped == false ? 'Đang trờ giúp đỡ' : 'Đã được giúp đỡ',
-      date:getDateTime(item.created)
+      date:item.created
     };
   });
   return (

@@ -38,6 +38,7 @@ const UserInteresedRequest = () => {
   /*---------update request to redux and firebase------*/
   const handleEdit = (id) => {
     const request = user.userInteresed.find((item) => item.id == id);
+    console.log(request);
     updateRequestFB(id, {
       ...request,
       helped: true,

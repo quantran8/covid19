@@ -69,10 +69,10 @@ const auth = createSlice({
         (item) => item.id == action.payload.id,
       );
       state.userInteresed[index] = action.payload
-      const index2 = state.requestOfAllUser.findIndex(
+      const indexInAllRequest = state.requestOfAllUser.findIndex(
         (item) => item.id == action.payload.id,
       );
-      state.requestOfAllUser[index] = action.payload;
+      state.requestOfAllUser[indexInAllRequest] = action.payload;
     },
     deleteInteresedRequest: (state, action) => {
       state.userInteresed = state.userInteresed.filter(

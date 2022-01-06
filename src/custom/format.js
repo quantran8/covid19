@@ -8,7 +8,7 @@ export const formatNumber = (num) => {
 export const formatDate = (date) => {
   if (date) return `${date.split('-').reverse().join('/')}`;
 };
-export const getDateTime = (date) => {
-  const datetime = new Date((date*1000));
+export const getDateTime = () => {
+  const datetime = new Date();
   return `${datetime.getDate()}/${datetime.getMonth()+1}/${datetime.getFullYear()}`;
 }
