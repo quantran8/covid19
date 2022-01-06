@@ -111,7 +111,7 @@ const UserInteresedRequest = () => {
     return {
       id: item.id,
       title: item.title,
-      status: item.helped == false ? 'Đang trờ giúp đỡ' : 'Đã được giúp đỡ',
+      status: item.helped == false ? 'Đang quan tâm' : 'Đã giúp đỡ',
     };
   });
   return (
